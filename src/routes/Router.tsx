@@ -1,4 +1,4 @@
-import { RecoilRoot, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import {
   BrowserRouter as Router,
   Route,
@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { routerState } from "../atoms/Router_atom";
 import AuthenticationView from "../views/Authenthication_view";
+import HomeView from "../views/Home_view";
 
 
 const AppRouter = () => {
@@ -15,7 +16,9 @@ const AppRouter = () => {
       <Router>
         <Routes>
           {session ? (
-            <></>
+            <>
+            <Route path="/" element={<HomeView />} />
+            </>
           ) : (
             <Route path="/" element={<AuthenticationView />} />
           )}
